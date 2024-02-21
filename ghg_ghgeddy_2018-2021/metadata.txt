@@ -1,0 +1,200 @@
+========================================
+Download Request Metadata
+Username: laure.claudon23@imperial.ac.uk
+Request date: 12/02/2024 13:47:59 UTC
+========================================
+These data from the North Wyke Farm Platform are distributed under a Creative Commons licence from Rothamsted Research Ltd and are made available without any representations or warranties of any kind, either express or implied. The data are protected by intellectual property rights including, but not restricted to Database Rights. Further details on the terms of the license can be found on our website.
+========================================
+========================================
+Filename: greenhouse_2020-01-01_2021-01-01.csv
+File length (bytes): 1242401
+Included dataset types: Eddy Covariance - Eddy CV 1 (QC Level 1)
+Start date: 01/01/2020 00:00:00
+End date: 01/01/2021 23:59:59
+Included catchments: Catchment 4 After  2013/08/13, Catchment 5, Catchment 6, Catchment 7, Catchment 8, Catchment 9, Catchment 11, Catchment 12, Catchment 13, Catchment 14, Green Shed, Blue Shed, Catchment 4 Prior to  2013/08/13, Brown Shed
+Included columns: CO2_1_1_1 (mmolCO2 mol-1), CH4_1_1_1 (nmolCH4 mol-1), FC_1_1_1 (umolCO2 m-2 s-1), FC_SSITC_TEST_1_1_1 (), FCH4_1_1_1 (nmolCH4 m-2 s-1), FCH4_SSITC_TEST_1_1_1 ()
+
+Measurement locations:
+Location Coordinates in Britisch National Grid and Height in meters above ground level.
+Name,Catchment,X Coord,Y Coord,Height,Type,ValidFrom,ValidUntil
+Tower 4,Catchment 4 After  2013/08/13,265687.812905,98423.97,4,Tower,,
+Tower 9,Catchment 9,266212.161671,98098.94,4,Tower,,
+
+Measurement info:
+ColumnName,MeasurementName,Unit
+CO2_1_1_1,Carbon dioxide concentration,mmolCO2 mol-1
+CH4_1_1_1,Methane concentration,nmolCH4 mol-1
+FC_1_1_1,CO2 flux,umolCO2 m-2 s-1
+FC_SSITC_TEST_1_1_1,Quality check - CO2 flux,
+FCH4_1_1_1,Methane flux,nmolCH4 m-2 s-1
+FCH4_SSITC_TEST_1_1_1,Quality check - CH4 flux,
+
+
+Filename: cattlegreenfeed_2020-01-01_2021-01-01.csv
+File length (bytes): 1985956
+Included dataset types: Cattle Greenfeed  - Cattle Greenfeed F1 (QC Level 1)
+Start date: 01/01/2020 00:00:00
+End date: 01/01/2021 23:59:59
+Included catchments: Catchment 4 After  2013/08/13, Catchment 5, Catchment 6, Catchment 7, Catchment 8, Catchment 9, Catchment 11, Catchment 12, Catchment 13, Catchment 14, Green Shed, Blue Shed, Catchment 4 Prior to  2013/08/13, Brown Shed
+Included columns: Carbon Dioxide (g/d), Methane (g/d)
+
+Measurement locations:
+Location Coordinates in Britisch National Grid and Height in meters above ground level.
+Name,Catchment,X Coord,Y Coord,Height,Type,ValidFrom,ValidUntil
+
+Measurement info:
+ColumnName,MeasurementName,Unit
+Carbon Dioxide,CO2 (g/d),g/d
+Methane,CH4 (g/d),g/d
+
+
+========================================
+========================================
+Field and catchment areas
+(Csv format: Paste into a new file and save with a '.csv' extension)
+
+Farmlet,Catchment,Fenced Catchment Area (ha),Hydrological Catchment Area (ha),Field,Field Id,Cutting Area (ha),Inorganic Spreading Area (ha),Organic Spreading Area (ha),Fenced Area (ha),Hydrological Area (ha)
+Red,Catchment 1,4.807064,4.807064,Pecketsford,NW001,3.414668,3.438887,2.972509,3.501638,3.651934
+Red,Catchment 2,6.653351,6.653351,Great Field,NW002,6.555166,6.550222,6.055586,6.653351,6.792171
+Red,Catchment 3,6.624721,6.624721,Poor Field,NW003,3.833842,3.866418,3.344986,3.917049,4.02711
+Red,Catchment 3,6.624721,6.624721,Ware Park,NW004,2.618674,2.63396,2.287803,2.706561,2.81129
+Green,Catchment 4 After  2013/08/13,7.75471,7.75471,Bottom Burrows,NW005,1.202546,1.231965,0.991551,1.262608,1.34319
+Green,Catchment 4 After  2013/08/13,7.75471,7.75471,Burrows,NW006,6.380848,6.425061,5.740706,6.492198,6.734475
+Green,Catchment 5,6.542819,6.542819,Orchard Dean,NW008,6.388287,6.375619,5.575541,6.472473,6.73053
+Green,Catchment 6,3.857106,3.857106,Golden Rove,NW009,3.773666,3.778924,3.276831,3.85714,3.946531
+Blue,Catchment 8,7.020383,7.020383,Higher Wyke Moor,NW010,4.233795,4.268161,3.801415,4.320008,4.510547
+Blue,Catchment 8,7.020383,7.020383,Middle Wyke Moor,NW011,2.626051,2.652389,2.288303,2.700384,2.815268
+Blue,Catchment 7,2.599911,2.599911,Lower Wyke Moor,NW012,2.529455,2.543783,2.067196,2.599913,2.705943
+Blue,Catchment 9,7.750637,7.750637,Dairy South,NW013,6.343232,6.390279,5.962929,6.445457,6.549251
+Blue,Catchment 11,1.75896,1.75896,Dairy East,NW014,1.702211,1.712459,1.365273,1.758896,1.854477
+Red,Catchment 10,1.819863,1.819863,Lower Wheaty,NW015,1.766674,1.77724,1.385679,1.819827,1.936127
+Green,Catchment 12,1.778943,1.778943,Dairy North,NW016,1.72511,1.737245,1.394478,1.778863,1.873755
+Green,Catchment 13,1.748588,1.748588,Longlands South,NW017,1.687607,1.694549,1.421792,1.748588,1.808858
+Blue,Catchment 14,1.715821,1.715821,Longlands North,NW018,1.65343,1.672057,1.438677,1.715821,1.783506
+Red,Catchment 15,1.537153,1.537153,Longlands East,NW019,1.479689,1.503791,1.205326,1.537196,1.621691
+Red,Catchment 1,4.807064,4.807064,Little Pecketsford,NW038,1.217573,1.263917,1.092661,1.305441,1.351037
+Blue,Catchment 9,7.750637,7.750637,Dairy Corner,NW039,1.237902,1.28531,1.048782,1.303329,1.364834
+Red,Red Shed,NA,NA,Red Cattle Shed,Red Cattle Shed,NA,NA,NA,NA,NA
+Green,Green Shed,NA,NA,Green Cattle Shed,Green Cattle Shed,NA,NA,NA,NA,NA
+Blue,Blue Shed,NA,NA,Blue Cattle Shed,Blue Cattle Shed,NA,NA,NA,NA,NA
+Green,Catchment 4 Prior to  2013/08/13,11.119127,11.119127,Bottom Burrows,NW005,1.202546,1.231965,0.991551,1.262608,1.34319
+Green,Catchment 4 Prior to  2013/08/13,11.119127,11.119127,Burrows,NW006,6.275503,6.31996,5.780702,6.386444,6.547743
+Green,Catchment 4 Prior to  2013/08/13,11.119127,11.119127,Top Burrows,NW007,3.390855,3.422023,3.033541,3.472107,3.658856
+Green,Catchment 5,6.542819,6.542819,Orchard Dean North,NW045,2.466,2.5107,2.141,2.5492,2.6773
+Green,Catchment 5,6.542819,6.542819,Orchard Dean South,NW046,3.8381,3.8649,3.4345,3.9233,4.0532
+Red,Catchment 1,4.807064,4.807064,Pecketsford (whole),NW047,4.632242,4.702804,4.06517,4.807078,5.002971
+Red,Red Shed,NA,NA,Red Sheep Shed,Red Sheep Shed,NA,NA,NA,NA,NA
+Green,Green Shed,NA,NA,Green Sheep Shed,Green Sheep Shed,NA,NA,NA,NA,NA
+Blue,Blue Shed,NA,NA,Blue Sheep Shed,Blue Sheep Shed,NA,NA,NA,NA,NA
+Red,Red Shed,NA,NA,Red Silage Clamp,Red Silage Clamp,NA,NA,NA,NA,NA
+Green,Green Shed,NA,NA,Green Silage Clamp,Green Silage Clamp,NA,NA,NA,NA,NA
+Blue,Blue Shed,NA,NA,Blue Silage Clamp,Blue Silage Clamp,NA,NA,NA,NA,NA
+Red,Brown Shed,NA,NA,Brown Cattle Shed,Brown Cattle Shed,NA,NA,NA,NA,NA
+Blue,Catchment 8,7.020383,7.020383,Wyke Moor,NW050,6.859846,6.92055,6.089718,7.020392,7.325815
+Red,Catchment 1,4.807064,4.807064,Pecketsford,NW001,3.501637,2.972485,3.438863,3.501638,3.501638
+Green,Catchment 5,6.542819,6.542819,Orchard Dean,NW008,6.542818,5.57553,6.390968,6.542819,6.542819
+Red,Catchment 1,4.807064,4.807064,Little Pecketsford,NW038,1.305426,1.092651,1.263808,1.305426,1.305426
+Red,Red Shed,NA,NA,Red Shed,Red Shed,NA,NA,NA,NA,NA
+Green,Green Shed,NA,NA,Green Shed,Green Shed,NA,NA,NA,NA,NA
+Blue,Blue Shed,NA,NA,Blue Shed,Blue Shed,NA,NA,NA,NA,NA
+Red,Red Shed,NA,NA,Red Cattle Shed: Returning Cattle,Red Cattle Shed: Returning Cattle,NA,NA,NA,NA,NA
+Green,Green Shed,NA,NA,Green Cattle Shed: Returning Cattle,Green Cattle Shed: Returning Cattle,NA,NA,NA,NA,NA
+Blue,Blue Shed,NA,NA,Blue Cattle Shed: Returning Cattle,Blue Cattle Shed: Returning Cattle,NA,NA,NA,NA,NA
+Red,Red Shed,NA,NA,Brown Cattle Shed: Returning Cattle,Brown Cattle Shed: Returning Cattle,NA,NA,NA,NA,NA
+Red,Red Shed,NA,NA,Red Cattle Shed: Young Cattle,Red Cattle Shed: Young Cattle,NA,NA,NA,NA,NA
+Green,Green Shed,NA,NA,Green Cattle Shed: Young Cattle,Green Cattle Shed: Young Cattle,NA,NA,NA,NA,NA
+Blue,Blue Shed,NA,NA,Blue Cattle Shed: Young Cattle,Blue Cattle Shed: Young Cattle,NA,NA,NA,NA,NA
+Red,Red Shed,NA,NA,Brown Cattle Shed: Young Cattle,Brown Cattle Shed: Young Cattle,NA,NA,NA,NA,NA
+
+========================================
+========================================
+Temporary fields
+(Csv format: Paste into a new file and save with a '.csv' extension)
+
+Field,Field Id,Temporary Field Name,Field Strips In Use
+Great Field,NW002,NW100,NW002_03,NW002_02,NW002_01
+Great Field,NW002,NW101,NW002_07,NW002_06,NW002_05,NW002_04
+Great Field,NW002,NW106,NW002_04,NW002_03,NW002_02,NW002_01
+Great Field,NW002,NW107,NW002_07,NW002_06,NW002_05
+Burrows,NW006,NW102,NW006_04,NW006_03,NW006_02,NW006_01
+Burrows,NW006,NW103,NW006_08,NW006_07,NW006_06,NW006_05
+Burrows,NW006,NWT401,NW006_03,NW006_02,NW006_01
+Burrows,NW006,NWT402,NW006_08,NW006_07,NW006_06,NW006_05,NW006_04
+Orchard Dean,NW008,NWT501,NW008_02,NW008_01
+Orchard Dean,NW008,NWT502,NW008_03,NW008_06,NW008_05,NW008_04
+Orchard Dean,NW008,NWT503,NW008_02,NW008_01,NW008_03,NW008_04
+Orchard Dean,NW008,NWT504,NW008_06,NW008_05
+Golden Rove,NW009,NWT601,NW009_03,NW009_02,NW009_01
+Golden Rove,NW009,NWT602,NW009_07,NW009_06,NW009_05,NW009_04
+Lower Wyke Moor,NW012,NW108,NW012_02,NW012_01
+Lower Wyke Moor,NW012,NW109,NW012_05,NW012_04,NW012_03
+Dairy South,NW013,NW104,NW013_04,NW013_03,NW013_02,NW013_01
+Dairy South,NW013,NW105,NW013_08,NW013_07,NW013_06,NW013_05
+Wyke Moor,NW050,NWT801,NW010_08,NW010_07,NW010_06,NW010_05,NW010_04,NW010_03,NW010_02,NW010_01,NW011_02,NW011_01
+Wyke Moor,NW050,NWT802,NW011_06,NW011_05,NW011_04,NW011_03
+
+
+========================================
+========================================
+Field strips in use by temporary fields
+(Csv format: Paste into a new file and save with a '.csv' extension)
+
+Field Strip Name,Cutting Area (ha),Fenced Area (ha),Inorganic Spreading Area (ha),Organic Spreading Area (ha),Hydrological Area (ha)
+NW002_03,1.266318,1.276554,1.264961,1.205449,1.290915
+NW002_02,0.983281,1.004502,0.982765,0.788262,1.058084
+NW002_01,0.05265,0.063917,0.056906,0.010889,0.08608
+NW002_07,0.697816,0.723802,0.696142,0.640298,0.73374
+NW002_06,1.103569,1.113676,1.102033,1.053154,1.127758
+NW002_05,1.190472,1.200184,1.188325,1.143034,1.21256
+NW002_04,1.261061,1.270715,1.25909,1.2145,1.283033
+NW006_04,0.974615,0.983924,0.983924,0.942879,0.99873
+NW006_03,0.899858,0.909571,0.909064,0.875968,0.924396
+NW006_02,0.919387,0.942617,0.933112,0.79938,0.978357
+NW006_01,0.059127,0.070271,0.058651,0.002605,0.098416
+NW006_08,0.083541,0.095758,0.082007,0.015205,0.120938
+NW006_07,1.034022,1.059069,1.034793,0.843197,1.111207
+NW006_06,1.286498,1.296368,1.291984,1.209287,1.335022
+NW006_05,1.1238,1.13462,1.131526,1.052185,1.167409
+NW008_02,0.878718,0.90629,0.882057,0.655195,0.978814
+NW008_01,0.048929,0.059019,0.052006,0.008653,0.079283
+NW008_03,1.538362,1.583876,1.576615,1.477178,1.619234
+NW008_06,0.645892,0.675084,0.642227,0.406734,0.752193
+NW008_05,1.623181,1.637667,1.622402,1.506975,1.667441
+NW008_04,1.569013,1.610537,1.600309,1.520801,1.633565
+NW009_03,0.736625,0.745722,0.735715,0.69492,0.757568
+NW009_02,0.802485,0.811839,0.801626,0.760249,0.823723
+NW009_01,0.352415,0.376767,0.366811,0.239494,0.378326
+NW009_07,0,0.00057,0,0,0.007924
+NW009_06,0.490494,0.51205,0.48645,0.342567,0.539404
+NW009_05,0.675527,0.685059,0.673608,0.589709,0.70083
+NW009_04,0.716121,0.725133,0.714714,0.649892,0.738756
+NW012_02,0.553671,0.562971,0.55295,0.470207,0.57593
+NW012_01,0.240137,0.254998,0.240507,0.143025,0.278694
+NW012_05,0.263274,0.280789,0.268018,0.165469,0.307093
+NW012_04,0.802454,0.815678,0.808707,0.725264,0.830415
+NW012_03,0.66992,0.685477,0.673601,0.563231,0.713811
+NW013_04,1.166786,1.1758,1.170803,1.168375,1.1758
+NW013_03,1.14575,1.154765,1.149743,1.149743,1.154765
+NW013_02,0.773156,0.796519,0.795394,0.727143,0.796519
+NW013_01,0.109754,0.12513,0.12513,0.108705,0.12513
+NW013_08,0.272196,0.286815,0.273889,0.169332,0.323842
+NW013_07,0.71543,0.726787,0.716051,0.616633,0.757243
+NW013_06,1.011459,1.021477,1.011645,0.922251,1.047488
+NW013_05,1.148701,1.158165,1.147624,1.100747,1.168464
+NW010_08,0.007731,0.014577,0.013918,0.000519,0.0297
+NW010_07,0.31216,0.324661,0.319058,0.233177,0.380221
+NW010_06,0.787519,0.800539,0.79159,0.700112,0.841134
+NW010_05,0.871319,0.881105,0.871721,0.79036,0.905689
+NW010_04,0.849113,0.85971,0.852933,0.806758,0.870017
+NW010_03,0.771874,0.781424,0.775813,0.735199,0.792969
+NW010_02,0.572248,0.585362,0.57656,0.504037,0.604252
+NW010_01,0.061831,0.07263,0.066569,0.031252,0.086565
+NW011_02,0.662708,0.67746,0.66665,0.576782,0.7019
+NW011_01,0.199513,0.215527,0.201818,0.112042,0.247903
+NW011_06,0,1.7E-05,0,0,0.000864
+NW011_05,0.309275,0.328609,0.317717,0.230346,0.358166
+NW011_04,0.722193,0.736458,0.729939,0.676961,0.751147
+NW011_03,0.732362,0.742313,0.736264,0.692172,0.755288
+
+
+========================================
