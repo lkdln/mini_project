@@ -11,7 +11,7 @@ library(sjPlot)
 library(MuMIn)
 library(psych)
 library(car)
-
+library(qqplotr)
 
 ################################################################################
 ################################################################################
@@ -21,7 +21,7 @@ library(car)
 
 
 ### Upload gas emissions dataset for each catchments fields 
-eddy <- read.csv('ghg_ghgeddy_2018-2021/greenhouse_aggregated.csv')
+eddy <- read.csv('Data/ghg_ghgeddy_2018-2021/greenhouse_aggregated.csv')
 # subset to focus on CO2 and CH4 concentration for catchment 4 and 9 
 eddy <- subset(eddy, select=c(Datetime, CH4_1_1_1..Tower.4., CH4_1_1_1..Tower.9.))
 eddy$Date <- as.Date(eddy$Datetime, format="%d/%m/%Y") #create a new column for date only 
@@ -43,9 +43,9 @@ eddy <- eddy %>% ungroup()
 eddy <- as.data.frame(eddy)
 
 ### upload livestock location dataset for each catchment fields 
-sheep_loc <- read.csv('livestock_2018-2021/sheep_location_aggregated.csv')
-lamb_loc <- read.csv('livestock_2018-2021/lamb_location_aggregated.csv')
-cattle_loc <- read.csv('livestock_2018-2021/cattle_location_aggregated.csv')
+sheep_loc <- read.csv('Data/livestock_2018-2021/sheep_location_aggregated.csv')
+lamb_loc <- read.csv('Data/livestock_2018-2021/lamb_location_aggregated.csv')
+cattle_loc <- read.csv('Data/livestock_2018-2021/cattle_location_aggregated.csv')
 # add livestock category for analysis down the line 
 sheep_loc$Species <- "Sheep"
 lamb_loc$Species <- "Lamb"
@@ -59,11 +59,11 @@ loc$Date <- as.Date(loc$Date, format= "%d/%m/%Y") # reformat date and get dateti
 loc <- loc %>% pivot_longer(cols = Catchment.4 : Catchment.9, names_to = "Catchment", values_to = "Count.animal") # pivot catchment 4 and 9 column to one catchment columns
 #loc <- loc %>% pivot_wider(names_from=Species, values_from=Count.animal) # pivot the livestock column into three columns per livestock category 
 loc$Catchment <- ifelse(grepl("Catchment.4", loc$Catchment, ignore.case = TRUE), "Catchment 4", 
-                        ifelse(grepl("Catchment.9", loc$Catchment , ignore.case = TRUE), "Catchment 9",NA))
+                             ifelse(grepl("Catchment.9", loc$Catchment , ignore.case = TRUE), "Catchment 9",NA))
 loc <- as.data.frame(loc)
 
 ##### SOIL DATA
-soil <- read.csv('soil_aggregated.csv')
+soil <- read.csv('Data/soil_aggregated.csv')
 soil <- subset(soil, select = -c(Soil.Temperature...15cm.Depth..oC...Catchment.2., Soil.Moisture...10cm.Depth......Catchment.2.))
 colnames(soil)[colnames(soil) == "Soil.Temperature...15cm.Depth..oC...Catchment.4.After..2013.08.13."] <- "soil.temp.catchment.4"
 colnames(soil)[colnames(soil) == "Soil.Temperature...15cm.Depth..oC...Catchment.9."] <- "soil.temp.catchment.9"
@@ -85,7 +85,7 @@ soil <- as.data.frame(soil)
 
 
 ### MET WEATHER DATA 
-met <- read.csv('met_aggregated.csv')
+met <- read.csv('Data/met_aggregated.csv')
 met <- met[, !grepl("Quality", names(met))] # drop all columns with the ekywoord Site..Quality
 names(met) <- tolower(names(met)) #normalise the column name for ease 
 met <- subset(met, select=-c(solar.radiation..w.m2...site., wind.direction..o...site.,wind.speed..km.h...site.))
@@ -121,7 +121,7 @@ merged_data <- merge(merged_data, met, by=c("date", "catchment"), all=T) # add w
 merged_data<- merged_data[!(is.na(merged_data$ch4.values)), ] # remove empty NA CH4 rows
 merged_data <- merge(merged_data, soil, by=c("date", "catchment"), all=T) # add soil data 
 summary(merged_data)
-
+merged_data<- merged_data[!(is.na(merged_data$ch4.values)), ]
 
 
 ################################################################################
@@ -130,49 +130,69 @@ summary(merged_data)
 ################################################################################
 ################################################################################
 
-
+par(mfrow=c(1,1))
 pairs.panels(merged_data) # check corrolation 
-# corrolation found on air temperaure, soil moisture and soil temperature removed  ( 0.72,0.92, 0.65 )
+summary(merged_data$ch4.values)
+var(merged_data$ch4.values)
 
-m1 <- lmer(ch4.values ~ species * catchment * scale(count.animal) + (1 | date) , data = merged_data)
+ # corrolation foch4.values# corrolation found on air temperaure, soil moisture and soil temperature removed  ( 0.72,0.92, 0.65 )
 
-m2 <- lmer(ch4.values ~ species * scale(count.animal) * catchment * scale(precipitation.mm + relative.humidity.rh) + (1 | date), data = merged_data, REML=T)
+m1 <- lmer(log(ch4.values) ~ species * scale(count.animal) * catchment *
+              (1 | date),
+            data = merged_data, REML=T )
 
-m3 <- lmer(ch4.values ~ species * scale(count.animal) * catchment * scale(precipitation.mm * relative.humidity.rh) + (1 | date), data = merged_data, REML=T)
+m2 <-  lmer(log(ch4.values) ~ species * scale(count.animal) * catchment *
+              scale(precipitation.mm) * scale(relative.humidity.rh) +
+              (1 | date),
+            data = merged_data, REML=T )
 
-m4 <- lmer(ch4.values ~ species * scale(count.animal) * catchment * scale(precipitation.mm * relative.humidity.rh) + (scale(precipitation.mm + relative.humidity.rh)| date) + (1 | date) , data = merged_data, REML=T)
-
-lrtest(m1,m2, m3, m4)
+lrtest(m1,m2)
 AIC(m1)
 AIC(m2)
-AIC(m3)
-AIC(m4)
-# vif(m3[,-c(1,2,4)]) # not including date and catchment 
-# vif(m3[,-c(1,2,4, 8,10,11)]) # air temperaure, soil moisture and soil temperature removed due to their VIF > 3 .
-summary(m4)
-r.squaredGLMM(m4) # conditional and marginal rsquared calculation
+plot(m2)
+par(mfrow=c(1,1))
+qqnorm(residuals(m2))
+qqline(residuals(m2))
+
+summary(m1)
+r.squaredGLMM(m1) 
+summary(m2)
+r.squaredGLMM(m2)# conditional and marginal rsquared calculation
 # we only have one random effect so we're not looking at removing any 
 # now looking at the fixed effects
-plot2 <- ggpredict(m4, terms=c("catchment", "species"))
+# 
+ggplot(merged_data, aes(x = ch4.values, fill = ..count..)) +
+geom_histogram(binwidth = 5) +  # Adjust binwidth as needed
+  labs(x = "CH4 concentrations", y = "Frequency", 
+       title = "Distribution of the response variable CH4") +
+  scale_fill_gradient(low = "darkblue", high = "lightblue") +  # Color of the bars
+  theme_minimal()
+
+
+plot2 <- ggpredict(m2, terms=c("count.animal","species","catchment"))
 plot(plot2, add.data = T, jitter =T) + 
   labs(y="CH4 concentration (mmol CH4 mol-1 unit)", x="") + 
   theme(axis.text=element_text(size=17),
-        axis.title=element_text(size=17,face="bold"),
-        legend.text = element_text(size=17),
-        strip.text= element_text(size=17))
+       axis.title=element_text(size=17,face="bold"),
+       legend.text = element_text(size=17),
+       strip.text= element_text(size=17))
 
 par(font.lab = 100, cex.lab = 1.5, cex.main = 2) # Adjust font size as needed
-tab_model(m4,  dv.labels=c("lmer( CH4 ~ species * scale(count.animal) * catchment * scale(precipitation.mm * relative.humidity.rh) +
+tab_model(m2,  dv.labels=c("lmer( CH4 ~ species * scale(count.animal) * catchment * scale(precipitation.mm * relative.humidity.rh) +
                            (scale(air.temperature.oc + relative.humidity.rh)| date) + (1 | date)) "),
           show.se=T,  show.icc = F,show.ngroups = F,  show.re.var =T,
           wrap.labels = 35) 
 
-plot_model(m4,vline.color = "red",sort.est = TRUE, title = NULL,
+tab_model(m2, transform="exp"
+          )
+
+plot_model(m2,vline.color = "red",sort.est = TRUE, title = NULL,
            axis.title = NULL,
            axis.labels = NULL,
            legend.title = NULL,)
 
 
+plot(m1)
 
 
 ########### 
